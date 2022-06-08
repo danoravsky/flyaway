@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/login/facebook', [LoginController::class, 'redirectToProvider']);
+Route::get('/login/facebook/callback', [LoginController::class, 'handleProviderCallback']);
