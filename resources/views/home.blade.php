@@ -9,6 +9,6 @@
             <p class="text-center" alt="website description">
                 This is a website for you to manage your products and orders
             </p>
-            <img src="img/about-pic8.png" alt="website description" class="w-full">
+            <img src="img/about-pic8.png" alt="website description" class="w-2/3 m-10 rounded-md">
 
 @endsection
