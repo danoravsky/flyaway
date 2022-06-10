@@ -50,6 +50,6 @@ class LoginController extends Controller
 
         auth()->login($user, true);
 
-        return redirect('dashboard');
+        return redirect('home');
     }
 }
