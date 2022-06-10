@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    <div class="max-w-2/3 mx-auto mt-24"
+    <div class="max-w-2/3 mx-auto mt-5"
         style="background-color: #f5f5f5; border-radius: 8px; padding: 24px;">
         <div class="flex flex-col items-center">
-            <h1 class="text-3xl font-bold text-center">
+            <h1 class="text-3xl font-bold text-center m-5">
                 Welcome To flyaway
             </h1>
             <p class="text-center" alt="website description">

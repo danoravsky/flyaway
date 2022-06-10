@@ -41,11 +41,12 @@ class DatabaseController extends Controller
         $product->validate([
             'title' => 'required|string|unique:products',
             'description' => 'required|string',
-            'price' => 'required|integer|min:0',
+            'price' => 'required|numeric|min:0',
             'category' => 'required|integer|min:0',
             'stock' => 'required|integer|min:0',
             'photo' => 'required|string'
         ]);
+
         $update = DB::table('products')
             ->insert(['title' => $product->title,
                 'description' => $product->description,
@@ -59,13 +60,22 @@ class DatabaseController extends Controller
         return redirect('/products');
     }
 
+
+    public function newProduct(){
+
+        $categories = DB::table('categories')
+        ->get();
+
+        return view('newproduct', compact('categories'));
+    }
+
     public function editProduct(Request $product)
     {
         $product->validate([
             'id' => 'required',
             'title' => 'required|string',
             'description' => 'required|string',
-            'price' => 'required|integer|min:0',
+            'price' => 'required|numeric|min:0',
             'category' => 'required|integer|min:0',
             'stock' => 'required|integer|min:0',
             'photo' => 'required|string'
@@ -84,6 +94,7 @@ class DatabaseController extends Controller
         return redirect('/product/' . $product->id);
     }
 
+
     public function removeProduct($product_id)
     {
         $product = DB::table('products')
@@ -98,8 +109,10 @@ class DatabaseController extends Controller
         $product = DB::table('products')
             ->where('id', $id)
             ->first();
+        $categories = DB::table('categories')
+            ->get();
 
-        return view('product', compact('product'));
+        return view('product', compact('product', 'categories'));
     }
 
     public function showCategory($category_id)

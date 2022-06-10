@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    <div class="max-w-lg mx-auto mt-24"
+    <div class="max-w-lg mx-auto mt-5"
         style="background-color: #f5f5f5; border-radius: 8px; padding: 24px;">
         <div class="flex flex-col items-center">
-            <h1 class="text-lg font-bold text-gray-900">
+            <h1 class="text-3xl font-bold text-center m-5">
                 Categories
             </h1>
                 {{-- {{ $products }} --}}

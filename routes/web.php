@@ -29,11 +29,11 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::get('/newproduct', [DatabaseController::class, 'newProduct'])->name('newproduct');
 Route::get('/home', [DatabaseController::class, 'index'])->name('home');
 Route::get('/products', [DatabaseController::class, 'showProducts'])->name('products');
 Route::get('/products/{category_id}', [DatabaseController::class, 'showCategory'])->where('category_id', '[0-9]+')->name('products_categorized');
 Route::post('/addproduct', [DatabaseController::class, 'addProduct'])->name('addproduct');
-Route::get('/newproduct', function(){return view('newproduct');})->name('newproduct');
 Route::post('/editproduct', [DatabaseController::class, 'editProduct'])->name('editproduct');
 Route::get('/removeproduct/{product_id}', [DatabaseController::class, 'removeProduct'])->where('product_id', '[0-9]+')->name('removeproduct');
 
