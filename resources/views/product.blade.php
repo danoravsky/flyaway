@@ -26,7 +26,7 @@
                                 Product title
                             </label>
                             <input name="title" type="text" value="{{ $product->title }}"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                class="@error('title') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             @error('title')
                                 <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
                                     {{ $message }}
@@ -38,7 +38,7 @@
                                 Product description
                             </label>
                             <input name="description" type="text" value="{{ $product->description }}"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
+                                class="@error('description') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
                             @error('description')
                                 <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
                                     {{ $message }}
@@ -50,7 +50,7 @@
                                 Price
                             </label>
                             <input name="price" type="text"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                                class="@error('price') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                                 type="number" value="{{ $product->price }}" min="0" step="0.01">
                             @error('price')
                                 <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
@@ -81,7 +81,7 @@
                                 Stock
                             </label>
                             <input name="stock" type="number" value="{{ $product->stock }}" min="0" step="1"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
+                                class="@error('stock') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
                             @error('stock')
                                 <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
                                     {{ $message }}
@@ -93,7 +93,7 @@
                                 Photo
                             </label>
                             <input name="photo" type="text" value="{{ $product->photo }}"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
+                                class="@error('photo') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
                             @error('photo')
                                 <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
                                     {{ $message }}
@@ -109,17 +109,6 @@
                         </div>
                     </form>
                 </div>
-
-
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li class="text-red-500 list-none">{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
 
                 @if ($product->stock > 0)
                     <a href="{{ route('addtocart', ['product_id' => $product->id]) }}"
