@@ -4,15 +4,15 @@
         style="background-color: #f5f5f5; border-radius: 8px; padding: 24px;">
         <div class="flex flex-col items-center">
             <h1 class="text-lg font-bold text-gray-900">
-                Products
+                Categories
             </h1>
                 {{-- {{ $products }} --}}
             <div class="flex flex-col items-center">
-                <div class="inline-flex">
+                <div class="inline-flex m-5">
                     <a href="{{route('products')}}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l">>All</a>
                     @foreach ($categories as $category)
                         <a href="{{route('products_categorized', ['category_id' => $category->id])}}"
-                            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l">>{{ucfirst($category->category)}}</a>
+                            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r">>{{ucfirst($category->category)}}</a>
                     @endforeach
                 </div>
             </div>
@@ -33,7 +33,8 @@
                         <div class="px-6 pt-4 pb-2">
                             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $item->price }} €</span>
                             @if ($item->stock > 0)
-                                <span class="inline-block bg-green-800 rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2"><a href="{{route('addtocart', ['product_id' => $item->id])}}" >Add to cart</a></span>
+                                <a href="{{route('addtocart', ['product_id' => $item->id])}}" >
+                                <span class="inline-block bg-green-800 rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Add to cart</span></a>
 
                             @else
                                 <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Out of stock</span>

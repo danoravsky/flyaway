@@ -35,7 +35,9 @@
 
             <!-- Page Content -->
             <main>
-                {{-- {{ $slot }} --}}
+                @if (Route::current()->getName() == 'profile.show')
+                {{ $slot }}
+                @endif
                 @yield('content')
             </main>
         </div>

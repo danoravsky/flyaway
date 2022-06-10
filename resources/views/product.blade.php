@@ -3,7 +3,7 @@
     <div class="max-w-lg mx-auto mt-24"
         style="background-color: #f5f5f5; border-radius: 8px; padding: 24px;">
         <div class="flex flex-col items-center">
-            <h1 class="text-3xl font-bold text-center">
+            <h1 class="text-4xl font-bold text-center">
                 {{$product->title}} product page
             </h1>
                 @if (auth()->user()->current_team_id == env('ADMIN_ID'))
@@ -77,7 +77,7 @@
                     @endif
 
                     @if ($product->stock > 0)
-                        <a href="{{route('addtocart', ['product_id' => $product->id])}}">Add to cart</a>
+                        <a href="{{route('addtocart', ['product_id' => $product->id])}}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition ml-4">Add to cart</a>
                     @else
                         <p>Out of stock</p>
                     @endif
@@ -88,7 +88,7 @@
                     <p>In stock: {{ $product->stock }}</p>
                     <p>{{ $product->price }} €</p>
                     @if ($product->stock > 0)
-                        <a href="{{route('addtocart', ['product_id' => $product->id])}}">Add to cart</a>
+                        <a href="{{route('addtocart', ['product_id' => $product->id])}}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition ml-4">Add to cart</a>
                     @else
                         <p>Out of stock</p>
                     @endif
